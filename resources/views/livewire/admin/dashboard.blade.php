@@ -86,7 +86,8 @@
                         @enderror
                     </div>
                     @hasanyrole('admin|manager')
-                    <button wire:click="notifyDueToday()" type="button" class="btn btn-primary btn-sm">Notify</button>
+                    {{-- <button wire:click="notifyDueToday()" type="button" class="btn btn-primary btn-sm">Notify</button> --}}
+                    <button wire:click=# type="button" class="btn btn-primary btn-sm">Notify</button>
                     @endhasanyrole
 
                 </div>
@@ -205,7 +206,8 @@
                 @enderror
             </div>
             @hasanyrole('admin|manager')
-            <button type="button" wire:click="birthdayCelebrants()" class="btn btn-success btn-sm">Send Greetings!</button>
+            {{-- <button type="button" wire:click="birthdayCelebrants()" class="btn btn-success btn-sm">Send Greetings!</button> --}}
+            <button type="button" wire:click=# class="btn btn-success btn-sm">Send Greetings!</button>
             @endhasanyrole
         </div>
         <!-- Card Body -->

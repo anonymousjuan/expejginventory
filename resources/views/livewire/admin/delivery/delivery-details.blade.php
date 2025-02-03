@@ -123,6 +123,10 @@
     
                             <button wire:click="changeDate('increment')" type="button" class="btn btn-primary">
                                 <i class="fas fa-chevron-right"></i></button>
+                                
+                        </div>
+                        <div class="mt-3 alert alert-info text-center" role="alert">
+                            <medium>Wait for the page to reload after setting the date</medium>
                         </div>
                         </div>
                         <table class="table table-bordered" width="100%" cellspacing="0">
@@ -132,7 +136,7 @@
                                 <th>Customer</th>
                                 <th>Items</th>
                                 <th>Address</th>
-                                <th>Date</th>
+                               
                             </tr>
                             </thead>
                             <tbody>
@@ -160,7 +164,7 @@
                                         @endforeach
                                     </td>
                                     <td>{{ $order->delivery_address }}</td>
-                                    <td>{{ $order->complete_date }}</td>
+                                    {{-- <td>{{ $order->complete_date }}</td> --}}
                                 </tr>
                                 @php
                                     $date = $order->complete_date;
