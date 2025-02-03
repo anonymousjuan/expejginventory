@@ -15,18 +15,18 @@ class SmsSender extends Component
     {
         $this->apiUrl = config('services.philsms.url');
         $this->apiToken = config('services.philsms.token');
-        $this->senderId = config('services.philsms.sender_id');
+        $this->sender_id = config('services.philsms.sender_id');
     }
 
     public function send($name, $balance, $contact)
     {
         $currentDateTime = Carbon::now()->format('d M H:i');
-        $formattedBalance = number_format($balance, 2);
+        $formattedBalance = @money($balance);
 
         $message = <<<EOT
 {$currentDateTime}: Hi {$name}! This is a friendly reminder from Jenny Grace Furniture Homestore.
 
-Your outstanding balance of PHP {$formattedBalance} is due today. Please settle your balance at your earliest convenience. Please disregard if already paid.
+Your outstanding balance of {$formattedBalance} is due today. Please settle your balance at your earliest convenience. Please disregard if already paid.
 EOT;
 
         return $this->sendSms($contact, $message);
@@ -50,7 +50,7 @@ EOT;
     private function sendSms($recipient, $message)
     {
         $data = [
-            'sender_id' => $this->senderId,
+            'sender_id' => $this->sender_id,
             'recipient' => $recipient,
             'message' => $message,
         ];
